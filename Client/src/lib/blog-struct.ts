@@ -15,3 +15,13 @@ export interface titleStruct {
 export interface reduceStruct {
     content: String;
 }
+
+export const dateFormat = (date: Date) => {
+    return (
+        date.getDay().toString() +
+        "/" +
+        date.getMonth().toString() +
+        "/" +
+        date.getFullYear().toString()
+    );
+};

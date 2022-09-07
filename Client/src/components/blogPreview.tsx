@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
-import { BlogStruct, titleStruct, reduceStruct } from "../lib/blog-struct";
-
-const dateFormat = (date: Date) => {
-    return (
-        date.getDay().toString() +
-        "/" +
-        date.getMonth().toString() +
-        "/" +
-        date.getFullYear().toString()
-    );
-};
+import {
+    BlogStruct,
+    titleStruct,
+    reduceStruct,
+    dateFormat,
+} from "../lib/blog-struct";
 
 const Title = (props: titleStruct) => {
     return (

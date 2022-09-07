@@ -1,4 +1,4 @@
-import BlogPreview from "./components/blog";
+import BlogPreview from "./components/blogPreview";
 import { BlogStruct } from "./lib/blog-struct";
 
 let testBlogProp: BlogStruct = {

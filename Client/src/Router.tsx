@@ -3,6 +3,7 @@ import App from "./App";
 import Header from "./components/header";
 import About from "./About";
 import Footer from "./components/footer";
+import Blog from "./Blog";
 
 export default function Router() {
     return (
@@ -11,8 +12,11 @@ export default function Router() {
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/blogs/:id" element={<Blog />} />
             </Routes>
-            <Footer />
+            <div className="mt-20">
+                <Footer />
+            </div>
         </>
     );
 }
