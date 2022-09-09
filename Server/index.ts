@@ -1,20 +1,28 @@
-import * as path from "path";
-import express = require("express");
+// Get dot env file ready
+import dotenv from "dotenv";
+dotenv.config();
 
-const app = express();
+// Get express and db
+import express from "express";
+import db from "./lib/useDB";
+
+// Get const's set up
 const port = 8080;
+const app = express();
 
-// serve static assets normally
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/"));
 
-app.get("/api", function (request: any, response: any) {
-    response.send("WOW");
-});
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get("*", function (request: any, response: any) {
-    response.sendFile(path.resolve(__dirname, "public", "index.html"));
+app.get("/api", (req, res) => {
+    res.send("Hello");
+    // console.log(db);
 });
 
-app.listen(port);
-console.log("server started on port " + port);
+// Send all links except for others indicated to index.html
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/public/" + "index.html");
+});
+
+// Starts server
+app.listen(port, () => {
+    console.log("Blog-Site Backend Listening on Port: " + port);
+});
