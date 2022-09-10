@@ -18,9 +18,9 @@ export interface reduceStruct {
 
 export const dateFormat = (date: Date) => {
     return (
-        date.getDay().toString() +
+        date.getDate().toString() +
         "/" +
-        date.getMonth().toString() +
+        (date.getMonth() + 1).toString() +
         "/" +
         date.getFullYear().toString()
     );

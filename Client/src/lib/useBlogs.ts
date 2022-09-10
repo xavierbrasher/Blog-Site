@@ -18,7 +18,7 @@ export default class useBlogs {
             id: notFormatedArray["id"],
             author: notFormatedArray["author"],
             content: notFormatedArray["content"],
-            dateCreated: new Date(notFormatedArray["dateCreated"]),
+            dateCreated: new Date(notFormatedArray["datecreated"]),
             title: notFormatedArray["title"],
             user: notFormatedArray["user"],
         };

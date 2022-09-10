@@ -10,7 +10,7 @@ const Title = (props: titleStruct) => {
     return (
         <>
             <div className="inline">
-                <h1 className="text-4xl font-bold inline text-left">
+                <h1 className="text-4xl font-bold inline text-left mr-2">
                     {props.title}
                 </h1>
                 <p className="float-right">{dateFormat(props.dateCreated)}</p>
