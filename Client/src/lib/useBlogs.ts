@@ -26,12 +26,13 @@ export default class useBlogs {
     }
 
     static async getBlogs() {
-        const apiURL = "http://localhost:8080/api/blogs";
+        // const apiURL = `http://${window.location.host}/api/blogs`; //TODO: Get rid of debug in production
+        const apiURL = `http://${window.location.hostname}:8080/api/blogs`;
         const responce = await fetch(apiURL);
         const res = await responce.json();
         const blogs: BlogStruct[] = [];
 
-        res.forEach((value: any) => {
+        res.forEach((value: any, key: any) => {
             blogs.push(this.formatApiResponce(value));
         });
 

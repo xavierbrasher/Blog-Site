@@ -25,13 +25,13 @@ export default function Header() {
                         tabIndex={0}
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52"
                     >
-                        <li>
+                        <li key={"blogs-link"}>
                             <Link to={"/blogs"}>Blogs</Link>
                         </li>
-                        <li>
+                        <li key={"about-link"}>
                             <Link to={"/about"}>About</Link>
                         </li>
-                        <li>
+                        <li key={"portfolio-link"}>
                             <a href="https://xavxavier.com/">Portfolio</a>
                         </li>
                     </ul>

@@ -24,7 +24,6 @@ const contentStucture = (content: String) => {
         }
         tmp += content[i];
     }
-    console.log(tmp.split("\n"));
     return tmp.split("\n");
 };
 
@@ -38,14 +37,14 @@ export default function Blog() {
                 <Title title={blog.title} dateCreated={blog.dateCreated} />
                 <p className="mx-4">By {blog.author}</p>
                 <p className="mt-1 mx-4">
-                    {contentStucture(blog.content).map((content) => {
+                    {contentStucture(blog.content).map((content, idx) => {
                         if (content === "") {
-                            return <></>;
+                            return <div key={idx}></div>;
                         }
                         return (
-                            <>
+                            <div key={idx}>
                                 {content} <br />
-                            </>
+                            </div>
                         );
                     })}
                 </p>
