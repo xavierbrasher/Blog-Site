@@ -1,5 +1,4 @@
 import { BlogStruct } from "./blog-struct";
-
 export default class useBlogs {
     static getBlog(blogId: number) {
         let x: BlogStruct = {
@@ -13,7 +12,29 @@ export default class useBlogs {
         };
         return x;
     }
-    static getBlogs() {
-        return [useBlogs.getBlog(5)];
+
+    static formatApiResponce(notFormatedArray: any) {
+        let formatedBlog: BlogStruct = {
+            id: notFormatedArray["id"],
+            author: notFormatedArray["author"],
+            content: notFormatedArray["content"],
+            dateCreated: new Date(notFormatedArray["dateCreated"]),
+            title: notFormatedArray["title"],
+            user: notFormatedArray["user"],
+        };
+        return formatedBlog;
+    }
+
+    static async getBlogs() {
+        const apiURL = "http://localhost:8080/api/blogs";
+        const responce = await fetch(apiURL);
+        const res = await responce.json();
+        const blogs: BlogStruct[] = [];
+
+        res.forEach((value: any) => {
+            blogs.push(this.formatApiResponce(value));
+        });
+
+        return blogs;
     }
 }
