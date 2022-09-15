@@ -1,8 +1,9 @@
 import { BlogStruct } from "./blog-struct";
 export default class useBlogs {
+    static url = `${process.env.REACT_APP_URL}`;
+
     static async getBlog(blogId: number) {
-        // const apiURL = `http://${window.location.host}/api/blogs`; //TODO: Get rid of debug in production
-        const apiURL = `http://${window.location.hostname}:8080/api/blog/${blogId}`;
+        const apiURL = `${useBlogs.url}/api/blog/${blogId}`; //TODO: Get rid of debug in production
         const responce = await fetch(apiURL);
         const res = await responce.json();
         const blog: BlogStruct = await this.formatApiResponce(res);
@@ -22,8 +23,7 @@ export default class useBlogs {
     }
 
     static async getBlogs() {
-        // const apiURL = `http://${window.location.host}/api/blogs`; //TODO: Get rid of debug in production
-        const apiURL = `http://${window.location.hostname}:8080/api/blogs`;
+        const apiURL = `${useBlogs.url}/api/blogs`; //TODO: Get rid of debug in production
         const responce = await fetch(apiURL);
         const res = await responce.json();
         const blogs: BlogStruct[] = [];

@@ -11,6 +11,7 @@ export default function Router() {
             <Header />
             <Routes>
                 <Route path="/" element={<App />} />
+                <Route path="/blogs" element={<App />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/blogs/:id" element={<Blog />} />
             </Routes>
