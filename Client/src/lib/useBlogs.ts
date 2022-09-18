@@ -3,7 +3,7 @@ export default class useBlogs {
     static port = `${process.env.REACT_APP_PORT}`;
 
     static async getBlog(blogId: number) {
-        const apiURL = `http://${window.location.hostname}:${this.port}/api/blog/${blogId}`; //TODO: Get rid of debug in production
+        const apiURL = `/api/blog/${blogId}`; //TODO: Get rid of debug in production
         console.log(apiURL);
         const responce = await fetch(apiURL);
         const res = await responce.json();
@@ -24,7 +24,7 @@ export default class useBlogs {
     }
 
     static async getBlogs() {
-        const apiURL = `http://${window.location.hostname}:${this.port}/api/blogs`; //TODO: Get rid of debug in production
+        const apiURL = `/api/blogs`; //TODO: Get rid of debug in production
         const responce = await fetch(apiURL);
         const res = await responce.json();
         const blogs: BlogStruct[] = [];
